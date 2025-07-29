@@ -1,44 +1,37 @@
-[gd_scene load_steps=8 format=3 uid="uid://m75byb8mg7qe"]
+[gd_scene load_steps=7 format=3 uid="uid://m75byb8mg7qe"]
 
 [ext_resource type="Script" uid="uid://bud66icy1f5vb" path="res://script/player.gd" id="1_hjaqi"]
-[ext_resource type="Texture2D" uid="uid://cl046hqsljhvl" path="res://asset/Spaceship.png" id="1_xo3ru"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hjaqi"]
-atlas = ExtResource("1_xo3ru")
-region = Rect2(0, 0, 98, 96)
+[ext_resource type="Texture2D" uid="uid://cxpi0qdfco1ni" path="res://asset/Blue_ship.png" id="2_hjaqi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fvtld"]
-atlas = ExtResource("1_xo3ru")
-region = Rect2(98, 0, 98, 96)
+atlas = ExtResource("2_hjaqi")
+region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ct4mp"]
-atlas = ExtResource("1_xo3ru")
-region = Rect2(196, 0, 98, 96)
+atlas = ExtResource("2_hjaqi")
+region = Rect2(64, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_s4jxa"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_hjaqi")
+"texture": SubResource("AtlasTexture_fvtld")
 }],
-"loop": true,
+"loop": false,
 "name": &"idle",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_fvtld")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_ct4mp")
 }],
 "loop": true,
-"name": &"moving",
+"name": &"tilting",
 "speed": 2.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_oh5ij"]
-size = Vector2(1.40536, 69.9814)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hjaqi"]
+height = 48.0
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
@@ -49,15 +42,8 @@ script = ExtResource("1_hjaqi")
 sprite_frames = SubResource("SpriteFrames_s4jxa")
 animation = &"idle"
 
-[node name="left_front" type="CollisionShape2D" parent="."]
-position = Vector2(-16.7844, -1.14559)
-rotation = 0.462381
-shape = SubResource("RectangleShape2D_oh5ij")
-
-[node name="right_front" type="CollisionShape2D" parent="."]
-position = Vector2(13.893, -2.07101)
-rotation = 2.68342
-shape = SubResource("RectangleShape2D_oh5ij")
-
 [node name="Muzzle" type="Node2D" parent="."]
 position = Vector2(-1, -40)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_hjaqi")

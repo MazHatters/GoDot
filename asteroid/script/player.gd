@@ -8,6 +8,7 @@ signal laser_shot(laser)
 
 @onready var sprite = $AnimatedSprite2D
 @onready var muzzle = $Muzzle
+@onready var cshape = $CollisionShape2D
 
 var laser_scene = preload("res://scene/laser.tscn")
 
@@ -37,21 +38,29 @@ func _physics_process(delta):
 	if input_vector.y == 0:
 		velocity = velocity.move_toward(Vector2.ZERO, 3)
 		sprite.play("idle")
-	elif Input.is_action_pressed("vk_up"):
-		sprite.play("moving")
+	if Input.is_action_pressed("vk_left"):
+		sprite.play("tilting")
+		sprite.flip_h = false
+	elif Input.is_action_pressed("vk_right"):
+		sprite.play("tilting")
+		sprite.flip_h = true
+	else:
+		sprite.play("idle")
+		
 	
 	move_and_slide()
 
+	var radius = cshape.shape.radius
 	var screen_size = get_viewport().size
-	if global_position.y < 0:
-		global_position.y = screen_size.y
-	elif global_position.y > screen_size.y:
-		global_position.y = 0
+	if (global_position.y + radius) < 0:
+		global_position.y = screen_size.y + radius
+	elif (global_position.y - radius) > screen_size.y:
+		global_position.y = -radius
 
-	if global_position.x < 0:
-		global_position.x = screen_size.x
-	elif global_position.x > screen_size.x:
-		global_position.x = 0
+	if (global_position.x + radius) < 0:
+		global_position.x = screen_size.x + radius
+	elif (global_position.x - radius) > screen_size.x:
+		global_position.x = radius
 		
 func shoot_laser():
 	var l = laser_scene.instantiate()
