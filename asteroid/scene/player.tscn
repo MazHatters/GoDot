@@ -41,6 +41,8 @@ animations = [{
 size = Vector2(1.40536, 69.9814)
 
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 5
 script = ExtResource("1_hjaqi")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -50,10 +52,12 @@ animation = &"idle"
 [node name="left_front" type="CollisionShape2D" parent="."]
 position = Vector2(-16.7844, -1.14559)
 rotation = 0.462381
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_oh5ij")
 
 [node name="right_front" type="CollisionShape2D" parent="."]
 position = Vector2(13.893, -2.07101)
 rotation = 2.68342
 shape = SubResource("RectangleShape2D_oh5ij")
+
+[node name="Muzzle" type="Node2D" parent="."]
+position = Vector2(-1, -40)
