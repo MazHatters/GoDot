@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bacbu3eopubqa"]
+
+[ext_resource type="Texture2D" uid="uid://cayxgrcbroac1" path="res://asset/Blue_ship_livest.png" id="1_m2nu3"]
+
+[node name="UILife" type="TextureRect"]
+offset_left = 17.0
+offset_top = 68.0
+offset_right = 81.0
+offset_bottom = 132.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_m2nu3")
