@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Astroid"
+config/name="Asteroid"
 run/main_scene="uid://b0cowyd01ii0d"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
