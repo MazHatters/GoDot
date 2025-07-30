@@ -2,7 +2,7 @@ class_name Asteroid extends Area2D
 
 var movement_vector := Vector2(0, -1)
 
-signal exploded(pos, size)
+signal exploded(pos, size, points)
 
 enum AsteroidSize{BIG,MEDIUM,SMALL}
 @export var size := AsteroidSize.BIG
@@ -11,6 +11,18 @@ var speed := 50
 
 @onready var sprite = $Sprite2D
 @onready var cshape = $CollisionShape2D
+
+var points: int:
+	get:
+		match size:
+			AsteroidSize.BIG:
+				return 50
+			AsteroidSize.MEDIUM:
+				return 100
+			AsteroidSize.SMALL:
+				return 200
+			_:
+				return 0
 
 func _ready():
 	rotation = randf_range(0, 2 * PI)
@@ -45,5 +57,5 @@ func _physics_process(delta):
 		global_position.x = radius
 
 func explode():
-	emit_signal("exploded", global_position, size)
+	emit_signal("exploded", global_position, size, points)
 	queue_free()
