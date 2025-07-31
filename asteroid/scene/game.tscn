@@ -52,7 +52,19 @@ script = ExtResource("1_dbls1")
 [node name="Asteroids" type="Node" parent="asteroid_spawner"]
 
 [node name="Asteroid" parent="asteroid_spawner/Asteroids" instance=ExtResource("3_33cqm")]
-position = Vector2(563, 197)
+position = Vector2(873, 604)
+
+[node name="Asteroid2" parent="asteroid_spawner/Asteroids" instance=ExtResource("3_33cqm")]
+position = Vector2(823, 107)
+
+[node name="Asteroid3" parent="asteroid_spawner/Asteroids" instance=ExtResource("3_33cqm")]
+position = Vector2(216, 179)
+
+[node name="Asteroid4" parent="asteroid_spawner/Asteroids" instance=ExtResource("3_33cqm")]
+position = Vector2(212, 563)
+
+[node name="Asteroid5" parent="asteroid_spawner/Asteroids" instance=ExtResource("3_33cqm")]
+position = Vector2(1176, 326)
 
 [node name="UI" type="CanvasLayer" parent="."]
 

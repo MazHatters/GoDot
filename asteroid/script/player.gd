@@ -40,7 +40,7 @@ func _physics_process(delta):
 		rotate(deg_to_rad(-rotation_speed * delta))
 	
 	if input_vector.y == 0:
-		velocity = velocity.move_toward(Vector2.ZERO, 3)
+		velocity = velocity.move_toward(Vector2.ZERO, 0.5)
 		sprite.play("idle")
 	if Input.is_action_pressed("vk_left"):
 		sprite.play("tilting")

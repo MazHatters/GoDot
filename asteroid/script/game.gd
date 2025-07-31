@@ -42,6 +42,8 @@ func _process(_delta):
 		get_tree().reload_current_scene()
 	if asteroids.get_child_count() == 0:
 		spawn_asteroids()
+	if Input.is_action_just_pressed("exit"):
+		get_tree().quit()
 
 func _on_player_laser_shot(laser):
 	$Audio/LaserShoot.play()
