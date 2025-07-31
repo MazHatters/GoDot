@@ -14,10 +14,11 @@ signal died
 var laser_scene = preload("res://scene/laser.tscn")
 
 var shoot_cd = false
-var rate_of_fire = 0.2
+var rate_of_fire = 0.3
 var alive = true
 
-func _process(delta):
+func _process(_delta):
+	if !alive: return
 	if Input.is_action_pressed("vk_space"):
 		if !shoot_cd:
 			shoot_cd = true
@@ -26,6 +27,7 @@ func _process(delta):
 			shoot_cd = false
 
 func _physics_process(delta):
+	if !alive: return
 	var input_vector := Vector2(0, Input.get_axis("vk_up", "vk_down"))
 	
 	velocity += input_vector.rotated(rotation) * accel
@@ -75,7 +77,6 @@ func die():
 		alive = false
 		emit_signal("died")
 		sprite.visible = false
-		process_mode = Node.PROCESS_MODE_DISABLED
 		
 func respawn(pos):
 	if alive == false:
@@ -83,4 +84,5 @@ func respawn(pos):
 		global_position = pos
 		velocity = Vector2.ZERO
 		sprite.visible = true
-		process_mode = Node.PROCESS_MODE_INHERIT
+		
+		

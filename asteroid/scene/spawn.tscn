@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://8r1d0hw122i5"]
+
+[ext_resource type="Script" uid="uid://h6scnr0oh2cc" path="res://script/spawn.gd" id="1_17rk7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w146n"]
+radius = 98.1835
+
+[node name="Spawn" type="Area2D"]
+collision_layer = 16
+collision_mask = 4
+script = ExtResource("1_17rk7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_w146n")

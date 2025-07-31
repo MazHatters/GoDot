@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bg50hb36i6nbw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ahc6u"]
+size = Vector2(1281, 720)
+
+[node name="asteroid_spawner" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(640, 360)
+shape = SubResource("RectangleShape2D_ahc6u")

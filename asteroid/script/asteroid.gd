@@ -12,6 +12,8 @@ var speed := 50
 @onready var sprite = $Sprite2D
 @onready var cshape = $CollisionShape2D
 
+var pending_size: AsteroidSize
+
 var points: int:
 	get:
 		match size:
@@ -26,6 +28,7 @@ var points: int:
 
 func _ready():
 	rotation = randf_range(0, 2 * PI)
+	size = pending_size
 	
 	match size:
 		AsteroidSize.BIG:
@@ -40,6 +43,9 @@ func _ready():
 			speed = randf_range(100, 200)
 			sprite.texture = preload("res://asset/Asteroid_small.png")
 			cshape.set_deferred("shape", preload("res://resources/asteroid_cshape_small.tres"))
+
+func initialize(s: AsteroidSize):
+	pending_size = s
 
 func _physics_process(delta):
 	global_position += movement_vector.rotated(rotation) * speed * delta
@@ -61,7 +67,6 @@ func explode():
 	queue_free()
 
 
-func _on_body_entered(body: Node2D) -> void:
+func _on_body_entered(body):
 	if body is Player:
-		var player = body
-		player.die()
+		body.die()

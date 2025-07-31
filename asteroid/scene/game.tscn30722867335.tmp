@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://m75byb8mg7qe" path="res://scene/player.tscn" id="1_5kiuu"]
 [ext_resource type="Script" uid="uid://bo5f237fy173o" path="res://script/game.gd" id="1_dbls1"]
 [ext_resource type="PackedScene" uid="uid://ojh64g0luclj" path="res://scene/hud.tscn" id="2_xwcet"]
-[ext_resource type="PackedScene" uid="uid://bg50hb36i6nbw" path="res://scene/asteroid_spawner.tscn" id="2_ym5sv"]
+[ext_resource type="PackedScene" uid="uid://dsm5wvtsrpnjm" path="res://scene/asteroid_spawner.tscn" id="2_ym5sv"]
 [ext_resource type="PackedScene" uid="uid://jxp0s2k67l16" path="res://scene/asteroid.tscn" id="3_33cqm"]
 [ext_resource type="PackedScene" uid="uid://pm0pupotbevy" path="res://scene/game_over.tscn" id="3_p1ry8"]
 [ext_resource type="PackedScene" uid="uid://cqb1u41sf0trb" path="res://scene/asteroid_on_spawn.tscn" id="4_yq8tf"]
@@ -47,12 +47,24 @@ scale_max = 8.0
 [node name="Game" type="Node2D"]
 script = ExtResource("1_dbls1")
 
-[node name="asteroid_spawner" parent="." instance=ExtResource("2_ym5sv")]
+[node name="Asteroid_spawner" parent="." instance=ExtResource("2_ym5sv")]
 
-[node name="Asteroids" type="Node" parent="asteroid_spawner"]
+[node name="Asteroids" type="Node" parent="Asteroid_spawner"]
 
-[node name="Asteroid" parent="asteroid_spawner/Asteroids" instance=ExtResource("3_33cqm")]
-position = Vector2(563, 197)
+[node name="Asteroid" parent="Asteroid_spawner/Asteroids" instance=ExtResource("3_33cqm")]
+position = Vector2(276, 229)
+
+[node name="Asteroid2" parent="Asteroid_spawner/Asteroids" instance=ExtResource("3_33cqm")]
+position = Vector2(792, 548)
+
+[node name="Asteroid3" parent="Asteroid_spawner/Asteroids" instance=ExtResource("3_33cqm")]
+position = Vector2(348, 565)
+
+[node name="Asteroid4" parent="Asteroid_spawner/Asteroids" instance=ExtResource("3_33cqm")]
+position = Vector2(882, 211)
+
+[node name="Asteroid5" parent="Asteroid_spawner/Asteroids" instance=ExtResource("3_33cqm")]
+position = Vector2(1114, 495)
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -105,10 +117,12 @@ position = Vector2(640, 360)
 [node name="LaserShoot" type="AudioStreamPlayer2D" parent="Audio"]
 stream = ExtResource("7_ll5lq")
 panning_strength = 0.5
+bus = &"Laser"
 
 [node name="AsteroidHit" type="AudioStreamPlayer2D" parent="Audio"]
 stream = ExtResource("8_17rxn")
 panning_strength = 0.5
+bus = &"Laser"
 
 [node name="PlayerDied" type="AudioStreamPlayer2D" parent="Audio"]
 stream = ExtResource("8_ll5lq")

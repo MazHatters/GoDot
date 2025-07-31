@@ -1,4 +1,4 @@
-extends Area2D
+class_name Laser extends Area2D
 
 var movement_vector := Vector2(0, -1)
 @export var speed := 500.0
