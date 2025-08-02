@@ -31,6 +31,7 @@ z_index = 100
 script = ExtResource("1_586km")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 2
 sprite_frames = SubResource("SpriteFrames_61k8b")
 animation = &"flying"
 

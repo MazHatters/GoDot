@@ -11,6 +11,7 @@ position = Vector2(0, 852)
 script = ExtResource("1_oqcwv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
 texture = ExtResource("1_vtjbo")
 offset = Vector2(864, 0)
 
