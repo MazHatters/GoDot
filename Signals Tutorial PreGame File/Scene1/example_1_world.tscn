@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://ciy25ap4uyuw7"]
+
+[ext_resource type="Script" uid="uid://ckote35g0k5ij" path="res://Scene1/example_1_world.gd" id="1_aega7"]
+[ext_resource type="Texture2D" uid="uid://dedi1nci2eot2" path="res://icon.svg" id="1_ijd5l"]
+[ext_resource type="Script" uid="uid://5nxrh5v5d61u" path="res://Scene1/Sprite2D.gd" id="2_cigpt"]
+
+[node name="example_1_world" type="Node2D"]
+script = ExtResource("1_aega7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(573, 332)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_ijd5l")
+script = ExtResource("2_cigpt")
+
+[connection signal="toggle_icon_spin" from="." to="Sprite2D" method="_on_example_1_world_toggle_icon_spin"]

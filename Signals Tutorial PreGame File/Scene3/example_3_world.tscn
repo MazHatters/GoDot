@@ -1,0 +1,62 @@
+[gd_scene load_steps=5 format=3 uid="uid://dxo5nvh5axr8q"]
+
+[ext_resource type="Texture2D" uid="uid://dedi1nci2eot2" path="res://icon.svg" id="1_tu4yr"]
+[ext_resource type="PackedScene" uid="uid://c4c31lmwsvyj6" path="res://Scene3/example_3_player.tscn" id="2_bolb6"]
+[ext_resource type="PackedScene" uid="uid://bwgl58hwd5wc4" path="res://Scene3/example_3_enemy.tscn" id="3_vb225"]
+[ext_resource type="Script" uid="uid://kblqd2t686rw" path="res://Scene3/ui.gd" id="4_si1ta"]
+
+[node name="Example3World" type="Node2D"]
+
+[node name="land" type="StaticBody2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="land"]
+offset_left = -19.0
+offset_top = -3.0
+offset_right = 1154.0
+offset_bottom = 717.0
+color = Color(0.380392, 0.576471, 0.737255, 1)
+
+[node name="Icon" type="Sprite2D" parent="land"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(391, 200.5)
+scale = Vector2(1.375, 2.38281)
+texture = ExtResource("1_tu4yr")
+
+[node name="Icon2" type="Sprite2D" parent="land"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(594, 297.5)
+scale = Vector2(3.42969, 1.95609)
+texture = ExtResource("1_tu4yr")
+
+[node name="Icon3" type="Sprite2D" parent="land"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(679, 436.5)
+scale = Vector2(3.42969, 1.95609)
+texture = ExtResource("1_tu4yr")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="land"]
+polygon = PackedVector2Array(316, 50, 368, 48, 464, 48, 474, 64, 480, 86, 479, 176, 778, 175, 792, 175, 801, 185, 815, 195, 813, 313, 861, 314, 882, 321, 899, 337, 898, 540, 887, 546, 857, 557, 496, 562, 461, 536, 458, 418, 407, 420, 374, 402, 378, 348, 319, 353, 304, 325, 309, 53, 269, 51, 247, 159, 247, 320, 278, 426, 343, 511, 412, 615, 547, 631, 697, 624, 808, 614, 906, 575, 933, 497, 944, 361, 916, 296, 859, 268, 842, 199, 828, 148, 745, 128, 645, 120, 529, 116, 495, 32, 191, 43, 261, 59, 271, 44, 312, 52)
+
+[node name="Example3Player" parent="." instance=ExtResource("2_bolb6")]
+position = Vector2(460, 299)
+
+[node name="Example3Enemy" parent="." instance=ExtResource("3_vb225")]
+position = Vector2(726, 432)
+
+[node name="ui" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("4_si1ta")
+
+[node name="PlayerHealth" type="ProgressBar" parent="ui"]
+modulate = Color(0.192157, 0.8, 0, 1)
+layout_mode = 0
+offset_left = 533.0
+offset_top = 46.0
+offset_right = 834.0
+offset_bottom = 114.0
+
+[connection signal="update_player_health" from="Example3Player" to="ui" method="_on_example_3_player_update_player_health"]
+[connection signal="damage_to_player" from="Example3Enemy" to="Example3Player" method="_on_example_3_enemy_damage_to_player"]
