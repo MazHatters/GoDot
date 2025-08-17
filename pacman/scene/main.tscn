@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://k8co8xu5e34m"]
+
+[ext_resource type="PackedScene" uid="uid://b216jn7nms4dd" path="res://scene/pacman.tscn" id="1_itxqv"]
+
+[node name="main" type="Node2D"]
+
+[node name="Pacman" parent="." instance=ExtResource("1_itxqv")]
+
+[node name="Camera2D" type="Camera2D" parent="Pacman"]
+ignore_rotation = false
+zoom = Vector2(4, 1.5)

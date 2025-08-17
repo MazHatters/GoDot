@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=3 uid="uid://b216jn7nms4dd"]
+
+[ext_resource type="Texture2D" uid="uid://d13wa6shjfjkb" path="res://assets/pacman.png" id="1_d8unl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wy4gw"]
+atlas = ExtResource("1_d8unl")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xl4iw"]
+atlas = ExtResource("1_d8unl")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_680o6"]
+atlas = ExtResource("1_d8unl")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8qrsu"]
+atlas = ExtResource("1_d8unl")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sgclv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wy4gw")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xl4iw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_680o6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8qrsu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_680o6")
+}],
+"loop": true,
+"name": &"moving",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pdxar"]
+radius = 6.0
+
+[node name="Pacman" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_sgclv")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_pdxar")
