@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://b216jn7nms4dd"]
+[gd_scene load_steps=9 format=3 uid="uid://b216jn7nms4dd"]
 
 [ext_resource type="Texture2D" uid="uid://d13wa6shjfjkb" path="res://assets/pacman.png" id="1_d8unl"]
+[ext_resource type="Script" uid="uid://cr744lwaq0gug" path="res://script/pacman.gd" id="1_wy4gw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wy4gw"]
 atlas = ExtResource("1_d8unl")
@@ -50,6 +51,7 @@ animations = [{
 radius = 6.0
 
 [node name="Pacman" type="CharacterBody2D"]
+script = ExtResource("1_wy4gw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_sgclv")
