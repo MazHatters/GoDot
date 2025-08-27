@@ -27,14 +27,16 @@ func _physics_process(delta):
 		sprite.flip_v = diry > 0
 		last_dir = Vector2(0, diry)
 		moving = true
-
+	
 	# Idle animation depends on last direction
 	if !moving:
 		if last_dir.x != 0:
 			sprite.play("idle_left_right")
 			sprite.flip_h = last_dir.x < 0
+			#moving = false
 		elif last_dir.y != 0:
 			sprite.play("idle_up_down")
 			sprite.flip_v = last_dir.y > 0
+			#moving = false
 
 	move_and_slide()

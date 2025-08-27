@@ -1,11 +1,15 @@
-[gd_scene load_steps=14 format=3 uid="uid://b216jn7nms4dd"]
+[gd_scene load_steps=15 format=3 uid="uid://b216jn7nms4dd"]
 
 [ext_resource type="Texture2D" uid="uid://d13wa6shjfjkb" path="res://assets/pacman.png" id="1_d8unl"]
 [ext_resource type="Script" uid="uid://cr744lwaq0gug" path="res://script/pacman.gd" id="1_wy4gw"]
 [ext_resource type="Texture2D" uid="uid://23wecgd44o8i" path="res://assets/pacman_upwards.png" id="3_xl4iw"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wy4gw"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_hfgp4"]
 atlas = ExtResource("1_d8unl")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vante"]
+atlas = ExtResource("3_xl4iw")
 region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xl4iw"]
@@ -38,14 +42,17 @@ region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_sgclv"]
 animations = [{
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hfgp4")
+}],
 "loop": true,
 "name": &"idle_left_right",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wy4gw")
+"texture": SubResource("AtlasTexture_vante")
 }],
 "loop": true,
 "name": &"idle_up_down",
