@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED = 150.0
+const SPEED = 100.0
 var moving = false
 var last_dir = Vector2.RIGHT  # default facing right
 @onready var sprite = $AnimatedSprite2D
